@@ -1,0 +1,11 @@
+# This is the decay file for the decay Lambda_C -> Lambda Pion
+Alias myLambdaC      Lambda_c+
+Alias myanti-LambdaC anti-Lambda_c-
+ChargeConj myanti-LambdaC myLambdaC
+#
+Decay myLambdaC
+1.000   K_S0 p+  PHSP;
+Enddecay
+CDecay myanti-LambdaC
+
+End
