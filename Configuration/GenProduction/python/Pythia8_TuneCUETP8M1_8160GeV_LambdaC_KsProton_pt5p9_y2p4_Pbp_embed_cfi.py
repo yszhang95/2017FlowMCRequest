@@ -13,8 +13,8 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2010.DEC'),
             operates_on_particles = cms.vint32(),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt.pdl'),
-            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec'),
-            list_forced_decays = cms.vstring('myD0', 'myanti-D0')
+            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/LambdaC_KsProton.dec'),
+            list_forced_decays = cms.vstring('myLambdaC', 'myanti-LambdaC')
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),
@@ -34,26 +34,23 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 
 generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 
-partonfilter = cms.EDFilter("PythiaFilter",
-    ParticleID = cms.untracked.int32(4) # 4 for c and 5 for b quark
-	)
-
-D0Daufilter = cms.EDFilter("PythiaMomDauFilter",
-    ParticleID = cms.untracked.int32(421),
+LambdaCDaufilter = cms.EDFilter("PythiaMomDauFilter",
+    ParticleID = cms.untracked.int32(4122),
     MomMinPt = cms.untracked.double(0.),
-    MomMinEta = cms.untracked.double(-2.4),
-    MomMaxEta = cms.untracked.double(2.4),
-    DaughterIDs = cms.untracked.vint32(211, -321),
+    MomMinEta = cms.untracked.double(-10),
+    MomMaxEta = cms.untracked.double(10),
+    DaughterIDs = cms.untracked.vint32(310, 2212),
     NumberDaughters = cms.untracked.int32(2),
     NumberDescendants = cms.untracked.int32(0),
 )
 
-D0rapidityPtfilter = cms.EDFilter("PythiaFilter",
-    ParticleID = cms.untracked.int32(421),
-                                MinPt = cms.untracked.double(1.2),
+LambdaCrapidityPtfilter = cms.EDFilter("PythiaFilter",
+    ParticleID = cms.untracked.int32(4122),
+                                MinPt = cms.untracked.double(5.9),
                                 MaxPt = cms.untracked.double(99999.),
-                                MinRapidity = cms.untracked.double(-1.58),
-                                MaxRapidity = cms.untracked.double(0.64),
+                                MinRapidity = cms.untracked.double(-2.0),
+                                MaxRapidity = cms.untracked.double(2.9),
                                 )
 
-ProductionFilterSequence = cms.Sequence(generator*partonfilter*D0Daufilter*D0rapidityPtfilter)
+
+ProductionFilterSequence = cms.Sequence(generator*LambdaCDaufilter*LambdaCrapidityPtfilter)
