@@ -13,7 +13,20 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2010.DEC'),
             operates_on_particles = cms.vint32(),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt.pdl'),
-            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/LambdaC_KsProton.dec'),
+            user_decay_embedded= cms.vstring(
+"""
+Alias myLambdaC      Lambda_c+
+Alias myanti-LambdaC anti-Lambda_c-
+ChargeConj myanti-LambdaC myLambdaC
+
+Decay myLambdaC
+1.000   K_S0 p+  PHSP;
+Enddecay
+CDecay myanti-LambdaC
+
+End
+"""
+            ),
             list_forced_decays = cms.vstring('myLambdaC', 'myanti-LambdaC')
         ),
         parameterSets = cms.vstring('EvtGen130')
