@@ -49,4 +49,4 @@ D0Daufilter = cms.EDFilter("PythiaMomDauFilter",
     BetaBoost = cms.untracked.double(0.434),
 )
 
-ProductionFilterSequence = cms.Sequence(generator*partonfilter*D0Daufilter*D0rapidityPtfilter)
+ProductionFilterSequence = cms.Sequence(generator*partonfilter*D0Daufilter)

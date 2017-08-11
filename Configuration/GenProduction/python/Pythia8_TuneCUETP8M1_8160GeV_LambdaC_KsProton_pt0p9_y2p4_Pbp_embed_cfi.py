@@ -58,4 +58,4 @@ LambdaCDaufilter = cms.EDFilter("PythiaMomDauFilter",
     BetaBoost = cms.untracked.double(-0.434),
 )
 
-ProductionFilterSequence = cms.Sequence(generator*LambdaCDaufilter*LambdaCrapidityPtfilter)
+ProductionFilterSequence = cms.Sequence(generator*LambdaCDaufilter)
