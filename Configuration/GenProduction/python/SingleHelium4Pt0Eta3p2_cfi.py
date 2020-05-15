@@ -13,7 +13,7 @@ generator = cms.EDProducer("FlatRandomPtGunProducer",
     ),
     Verbosity = cms.untracked.int32(0), ## set to 1 (or greater)  for printouts
 
-    psethack = cms.string('single deuteron'),
+    psethack = cms.string('single helium 4'),
     AddAntiParticle = cms.bool(True),
     firstRun = cms.untracked.uint32(1)
 )
