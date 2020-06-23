@@ -1,3 +1,8 @@
+# Descriptions
+
+Commands for MC D0toKK and D0toPiPi productions in PbPb collisions at 5.02 TeV with 2018 run conditions.
+
+```
 # I removed "--nThreads 2".
 # GEN-SIM
 cmsDriver.py Configuration/GenProduction/python/Pythia8_TuneCP5_5TeV_D0_PiPi_prompt_pt1p2_y2p4_cfi.py \
@@ -31,4 +36,4 @@ cmsDriver.py Configuration/GenProduction/python/Pythia8_TuneCP5_5TeV_D0_KK_nonpr
 --beamspot MatchHI --step GEN,SIM \
 --scenario HeavyIons --geometry DB:Extended --era Run2_2018_pp_on_AA \
 --python_filename Pythia8_TuneCP5_5TeV_D0_KK_nonprompt_pt1p2_y2p4_cfg.py --no_exec -n 1000
-
+```
