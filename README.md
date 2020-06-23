@@ -9,6 +9,7 @@ It is better to clone the repo outside `${CMSSW_BASE}`.
 ```
 git clone https://github.com/davidlw/2017FlowMCRequest.git
 mv 2017FlowMCRequest/Configuration 2017FlowMCRequest/GeneratorInterface ${CMSSW_BASE}/src
+cd ${CMSSW_BASE}/src
 scram b
 ```
 
