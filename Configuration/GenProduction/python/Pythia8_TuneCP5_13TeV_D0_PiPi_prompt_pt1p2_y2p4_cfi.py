@@ -22,7 +22,7 @@ Alias myanti-D0 anti-D0
 ChargeConj myanti-D0 myD0
 #
 Decay myD0
-1.000   K- K+  PHSP;
+1.000   pi- pi+  PHSP;
 Enddecay
 CDecay myanti-D0
 
