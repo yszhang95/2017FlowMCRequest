@@ -28,6 +28,7 @@ CDecay myanti-D0
 
 End
 """
+),
             list_forced_decays = cms.vstring('myD0', 'myanti-D0')
         ),
         parameterSets = cms.vstring('EvtGen130')
