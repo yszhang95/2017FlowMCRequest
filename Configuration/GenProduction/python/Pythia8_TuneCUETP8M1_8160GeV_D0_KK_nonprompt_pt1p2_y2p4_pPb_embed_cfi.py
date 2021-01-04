@@ -10,9 +10,10 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
     maxEventsToPrint = cms.untracked.int32(0),
     ExternalDecays = cms.PSet(
         EvtGen130 = cms.untracked.PSet(
-            decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2010.DEC'),
+            decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             operates_on_particles = cms.vint32(),
-            particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt.pdl'),
+            particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
+            convertPythiaCodes = cms.untracked.bool(False), ## Also include this if you use evtgen
             # user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec'),
 			user_decay_embedded = cms.vstring(
 				# https://github.com/cms-data/GeneratorInterface-EvtGenInterface/blob/master/D0_Kpi.dec
@@ -36,7 +37,7 @@ End
     PythiaParameters = cms.PSet(
         pythia8CommonSettingsBlock,
         pythia8CUEP8M1SettingsBlock,
-        processParameters = cms.vstring(     
+        processParameters = cms.vstring(
             'HardQCD:all = on',
         ),
         parameterSets = cms.vstring(
